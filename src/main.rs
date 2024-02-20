@@ -16,7 +16,12 @@ fn read_string() -> String {
     }
 }
 
-fn read() {
+fn read() -> Object {
+    Object::FIXNUM(read_string().trim().parse::<i64>().unwrap())
+}
+
+fn eval(expr: Object) -> Object {
+    expr
 }
 
 fn write(obj: Object) {
@@ -33,7 +38,7 @@ fn main() {
 
     loop {
         print!("> ");
-        write(read());
+        write(eval(read()));
         println!();
     }
 }
