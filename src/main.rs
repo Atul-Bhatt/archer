@@ -1,4 +1,5 @@
 use std::io;
+use std::io::Write;
 
 enum Object {
     BOOLEAN(String),
@@ -44,6 +45,7 @@ fn main() {
 
     loop {
         print!("> ");
+        io::stdout().flush().unwrap();
         write(eval(read()));
         println!();
     }
